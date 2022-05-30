@@ -12,9 +12,57 @@ body {
     margin: 0;
 }
 
+.add {
+    background-color: cornflowerblue;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 0.2px;
+    padding: 0.5rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    
+}
+
 .notes {
-    width: 20rem;
-    height: 20rem;
+    width: 30rem;
+    height: 30rem;
     background-color: #EDE3E9;
     margin: 2rem;
+}
+
+.notes .tools {
+    background-color: blue;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.notes .tools button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+}
+
+.notes .main {
+    /* display: none; */
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.notes textarea {
+    outline: none;
+    font-family: inherit;
+    font-size: 1.5rem;
+    height: 100%;
+    width: 100%;
+    border: none;
+}
+
+.notes .hidden {
+    display: none;
 }
