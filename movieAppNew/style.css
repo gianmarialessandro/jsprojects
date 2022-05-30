@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background-color: rgba(24, 24, 26, 0.899);
+}
+
+header {
+    font-family: inherit;
+    display: flex;
+    justify-content: left;
+    padding: 1rem;
+    /* width: 20rem; */
+}
+
+header input {
+    border-radius: 50px;
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 20rem;
+    color: #f5f5f5;
+
+
+}
+
+input::placeholder {
+    color: #f5f5f5;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: inline-block;
+    position: relative;
+    background-color: rgba(20, 21, 22, 0.626);
+    overflow: hidden;
+    width: 17rem;
+    height: 30rem;
+    margin: 1rem;
+    border-radius: 10px;
+    margin: 1rem;
+    color: #f5f5f5;
+    font-family: inherit;
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.item .movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+}
+
+.item .movie-info h3 {
+    font-size: 1rem;
+    margin: 0;    
+}
+
+.item .movie-info span {
+    padding: 0.2rem 0.5rem;
+}
+
+span.super-green {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+span.green {
+    background-color: rgba(2, 219, 2, 0.5);
+}
+
+span.green-yellow {
+    background-color: rgba(158, 221, 62, 0.5);
+}
+
+span.yellow-red {
+    background-color: rgba(255, 230, 1, 0.876);
+    color: black;
+}
+
+span.red {
+    background-color: rgba(243, 15, 15, 0.799);
+}
+
+.item .overview {
+    position: absolute;
+    color: #f5f5f5;
+    background-color: rgba(0, 0, 0, 0.825);
+    overflow: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    transform: translateY(100%);
+    transition: 0.4s ease-in-out;
+}
+
+.item:hover .overview {
+    transform: translateY(0);
+}
