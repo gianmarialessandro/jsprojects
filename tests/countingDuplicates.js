@@ -16,7 +16,6 @@
 var txt = "aabBcde112311cC2"
 
 function duplicateCount(text) {
-  //...
   textArr = text.toLowerCase().split("")
   const duplicate = {}
   let i = 0
@@ -30,3 +29,33 @@ function duplicateCount(text) {
 }
 
 duplicateCount(txt)
+
+// OTHER SOLUTIONS
+
+//
+function duplicateCount1(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
+
+//
+function duplicateCount2(text){
+  return text.toLowerCase().split('').filter(function(val, i, arr){
+    return arr.indexOf(val) !== i && arr.lastIndexOf(val) === i;
+  }).length;
+}
+
+//
+function duplicateCount3(text){
+  var lower = text.toLowerCase();
+  var count = 0;
+  var used = [];
+  
+  lower.split('').forEach(function(letter) {
+    if (!used.includes(letter) && (lower.split(letter).length - 1) > 1) {
+      count++;
+      used.push(letter);
+    }
+  });
+  
+  return count;
+}
