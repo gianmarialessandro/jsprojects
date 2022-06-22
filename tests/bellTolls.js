@@ -17,13 +17,25 @@ const test = 13;
 //     console.log(nrToAdd, index, res)
 // }
 const bell = (nr) => {
-    var arrRes = [];
-    for (let i = 1; i < nr; i++) {  
-        let p = []
-        arrRes.push([i])
-        
+    let n = nr
+    var res = [];
+    if (n !== 0) {
+        for (let i = 1; i <= n; i++) {
+            let nrs = [];
+            let p = i * 2
+            for (let ii = i; ii <= p; ii++) {
+
+                nrs.push(ii)
+                
+            }
+            res.push(nrs)
+
+        }
+
+        // res.shift();
+        console.log(res)
     }
-    console.log(arrRes)
+
 }
 
 
