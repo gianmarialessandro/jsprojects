@@ -50,10 +50,13 @@ const cardsArray = [
 ]
 
 // randomise the sequence 
+
 cardsArray.sort(() => 0.5 - Math.random())
 
 const grid = document.querySelector('.grid')
+const result = document.querySelector('#result')
 let choosenCard = []
+let matchedCards = 0
 
 
 const createGrid = () => {
@@ -66,21 +69,60 @@ const createGrid = () => {
     }
 }
 
-//prova
-// function prova() {
-//     let tutteimg = document.querySelectorAll('img')
-//     console.log(tutteimg[7])
-// }
+function refreshPage() {
+    document.location.reload(true)
+}
+
+// funzione per comparare le carte
+function compareCards() {
+    let gridCards = document.querySelectorAll('img')
+
+    let firstCard = choosenCard[0]
+    let secondCard = choosenCard[1]
+
+    // console.log(firstCard, secondCard)
+
+    if(firstCard == secondCard) {
+        alert("hai scelto la stessa carta")
+        gridCards[firstCard].setAttribute('src', "images/back-side.jpg")
+    }else if(cardsArray[firstCard].name === cardsArray[secondCard].name){
+        // alert("hai trovato due carte uguali")
+        gridCards[firstCard].setAttribute('src', "images/white.jpg")
+        gridCards[secondCard].setAttribute('src', "images/white.jpg")
+
+        gridCards[firstCard].removeEventListener('click', flipCard)
+        gridCards[secondCard].removeEventListener('click', flipCard)
+        matchedCards += 1
+        
+        
+    } else {
+        gridCards[firstCard].setAttribute('src', "images/back-side.jpg")
+        gridCards[secondCard].setAttribute('src', "images/back-side.jpg")
+    }
+    choosenCard = []
+    if(matchedCards == (cardsArray.length / 2)) {
+        result.innerHTML = `${matchedCards}<br/>Ottimo! <br/>Hai torvato tutte le carte`
+        const refresh = document.createElement('input')
+        refresh.setAttribute('type', 'button')
+        refresh.setAttribute('value', 'Restart Game')
+        refresh.addEventListener('click', refreshPage)
+        result.appendChild(refresh)
+    } else result.innerHTML = matchedCards
+
+}
 
 
+// funzione per carte selezionate
 // remember arrow function dosen't allow this 
 function flipCard(){
     let cardId = this.getAttribute('data-id')
     this.setAttribute('src', cardsArray[cardId].img)
+    // console.log(cardsGrid[cardId])
+    // console.log(cardsArray[cardId])
     choosenCard.push(cardId)
     if(choosenCard.length == 2) {
-        // prova()
-    }
+        setTimeout(compareCards, 500)
+    } 
 }
 
 
