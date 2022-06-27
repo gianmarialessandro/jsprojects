@@ -1,0 +1,18 @@
+body {
+    background-color: #f5f5f5;
+    font-family: sans-serif;
+}
+
+h2 {
+    text-align: center;
+}
+
+.grid {
+    padding: 2rem;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
