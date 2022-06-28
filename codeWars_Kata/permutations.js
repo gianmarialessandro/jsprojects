@@ -13,19 +13,20 @@
 
 // permutations('a')
 // permutations('ab')
-permutations('aabb')
+permutations('let', '')
 
-function permutations(string) {
-    let arr = []
-    var element = ""
-    for (let i = 0; i < string.length; i++) {
-        element += string[i];
+function permutations(str, result) {
+    if (str.length == 0) {
     }
-    arr.push(element)
-    console.log(arr)
+    for (let i = 0; i < str.length; i++) {
+        var rest = str.substring(0, i)+ str.substring(i + 1)
+        console.log(rest)
+        permutations(rest, result + str[i])
+    }
 }
 
-
+// rest et str t
+// result l  e
 
 // OTHER SOLUTION 
 // function permutations(string) {
