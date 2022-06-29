@@ -13,16 +13,19 @@
 
 // permutations('a')
 // permutations('ab')
+var arr = []
 permutations('let', '')
-
 function permutations(str, result) {
     if (str.length == 0) {
+        arr.push(result)
+        // console.log(result)
+        console.log(arr)
     }
     for (let i = 0; i < str.length; i++) {
         var rest = str.substring(0, i)+ str.substring(i + 1)
-        console.log(rest)
         permutations(rest, result + str[i])
     }
+    return arr
 }
 
 // rest et str t
