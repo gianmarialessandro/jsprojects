@@ -16,6 +16,8 @@ const grido = "hello"
 
 function wave(str){
     // Code here
+    let arr = []
+    
     console.log(str.length)
   }
 
