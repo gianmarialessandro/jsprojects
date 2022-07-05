@@ -12,13 +12,18 @@
 // wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
 
 
-const grido = "hello"
+const grido = "Hello"
 
 function wave(str){
     // Code here
     let arr = []
+    let a = str.toLowerCase();
+    for(let i = 0; i < a.length; i++) {
+      let onda = a[i].toUpperCase()
+      arr.push(a[i])
+    }
     
-    console.log(str.length)
+    console.log(arr)
   }
 
 wave(grido)
