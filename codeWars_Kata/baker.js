@@ -14,17 +14,15 @@
 // cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}); 
 
 var ricetta = {flour: 500, sugar: 200, eggs: 1}
-var dispo = {flour: 1200, sugar: 1200, milk: 200}
+var disponibile = {flour: 1200, sugar: 1200, milk: 200}
 
-cakes(ricetta, dispo)
+cakes(ricetta, disponibile)
 function cakes(recipe, available) {
-    for (const key in ricetta) {
-        for (const sKey in available) {
-            if (sKey == key) {
-                console.log(`${recipe[key]} : ${available[sKey]}`)            
+    for (const ing in recipe) {
+        for (const ingrediente in available) {
+            if (ing == ingrediente) {
+                available.exist = true
             }
-            
         }
     }
-    return
-  }
+}
