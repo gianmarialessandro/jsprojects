@@ -40,59 +40,43 @@ var last = "170.1.0.0"  //65536
 
 function ipsBetween(start, end){
     //TODO
-
-    let ipSlots = 255
-
-    let startArr = start.split(".")
-    let endArr = end.split(".")
-    
-    let s1 = parseInt(startArr[0])
-    let s2 = parseInt(startArr[1])
-    let s3 = parseInt(startArr[2])
-    let s4 = parseInt(startArr[3])
-
-    let e1 = parseInt(endArr[0])
-    let e2 = parseInt(endArr[1])
-    let e3 = parseInt(endArr[2])
-    let e4 = parseInt(endArr[3])
-
-    // console.log(s1, s2, s3, s4)
-    // console.log(e1, e2, e3, e4)
-
-    // if(e1 != s1){
-    //     console.log("da sviluppare")
-    // }
-    // if(e2 != s2){
-    //     if(s2 == 0) {
-    //         let r = e2 -1
-    //         if(s3 != 0) {
-    //             r += ipSlots - s3
-    //             return console.log(r)
-    //         } else {
-    //             r += (256 * 256) - s4
-    //             return console.log(r)
-    //         }
-    //     } else {
-    //         let r = e2 - s2
-    //         return console.log(r)
-    //     }
-    // }    
-    // if(e3 != s3){
-    //     if(s3 == 0) {
-    //         let r = e3
-    //         r += ipSlots - s4
-    //         return console.log(r)
-    //     } else {
-    //         let r = e3 - s3
-    //         r += ipSlots - s4
-    //         return console.log(r)
-    //     }
-    // }
-    // if(e4 != s4){
-    //     let r = e4 - s4
-    //     return console.log(r)
-    // }
-
-  }
+    const calc = (n, m = 1) => (parseInt(end.split(".")[n]) - parseInt(start.split(".")[n])) * m
+    // const first = parseInt(end.split(".")[3]) - parseInt(start.split(".")[3])
+    // const second = parseInt(end.split(".")[2]) - parseInt(start.split(".")[2])
+    // const third = parseInt(end.split(".")[1]) - parseInt(start.split(".")[1])
+    // const forth = parseInt(end.split(".")[0]) - parseInt(start.split(".")[0])
+    // console.log(calc(0, 256*256*256) +  calc(1, 256*256) +  calc(2, 256) + calc(3))
+    return calc(0, 256*256*256) +  calc(1, 256*256) +  calc(2, 256) + calc(3)
+}
 
 ipsBetween(first, last)
+
+// OTHER SOLUTIONS
+// function ipsBetween(start, end){
+//     const num = ip => ip.split('.')
+//                         .map(x => parseInt(x))
+//                         .reduce((acc, e) => acc * 256 + e);  
+    
+//     return num(end) - num(start);
+//   }
+
+
+//
+// function ipsBetween(start, end){
+//     function val(ip){return ip.split('.').reduce(function(tot,cur,i){return tot+cur*Math.pow(256,3-i)}, 0);}
+//     return val(end)-val(start);
+//   }
+
+
+//
+// function ipsBetween(start, end){
+//     const ip1 = start.split('.')
+//     const ip2 = end.split('.')
+    
+//     let result = 0
+//     for (let i = 0; i < 4; i++) {
+//       result += (ip2[i] - ip1[i]) * 256 ** (3 - i)
+//     }
+    
+//     return result
+//   }
