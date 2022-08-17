@@ -1,1 +1,1 @@
-const str = "un due tre come stringhe"
+const commit = "primo commit non ha letto la prima riga di separazione"
